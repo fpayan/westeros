@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
 
@@ -24,16 +24,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Crear el modelo
         let houses = Repository.local.houses
-        
+    
         // Creamos los controladores (masterVC, detailVC)
-        let houseListViewController = HouseListViewController(model: houses)
+        let houseListVC = MasterWesterosViewController(model: houses)
+        let lastSelectedHouse = houseListVC.lastSelectedHouse()
+        let houseDetailVC = DetailHouseViewController(model: lastSelectedHouse)
+        
+        // Asignar delegados
+        houseListVC.delegate = houseDetailVC
+        
+        // Se crea el Tab para los VC de Houses y Seasons
+//        let tabBarVC = UITabBarController()
+//        tabBarVC.viewControllers = [houseListVC, houseDetailVC]
         
         
+        //if (UIDevice.current.userInterfaceIdiom == .pad){
+            // Crear el UISplitVC y le asignamos los viewControllers (master y detail)
+            let splitViewController = UISplitViewController()
+            splitViewController.viewControllers = [
+                houseListVC.wrappedInNavigation(), houseDetailVC.wrappedInNavigation()
+            ]
+        //}else{
+            // En cualquier otro dispositivo, se decide no mostrar el split view
+            //window?.rootViewController = tabBarVC
+        //}
         
-        //nav.setViewControllers(houseListViewController, animated: true)
+//        let rightNavController = splitViewController.viewControllers.last as? UINavigationController,
+//        let houseDetailVC = rightNavController?.topViewController as? DetailHouseViewController
+//        
+        // Asignamos el rootVC
+        window?.rootViewController = splitViewController
         
-        window?.rootViewController = houseListViewController
-        
+        //houseDetailVC.navigationItem.title = houseDetailVC.nameHouseLabel.text
+        houseDetailVC.navigationItem.leftItemsSupplementBackButton = true
+        houseDetailVC.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
         
         return true
     }
@@ -59,6 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
 
 
 }
