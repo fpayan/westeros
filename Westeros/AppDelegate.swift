@@ -16,6 +16,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        window?.backgroundColor = .cyan
+        window?.makeKeyAndVisible()
+        
+        // Crear el modelo
+        let houses = Repository.local.houses
+        
+        // Creamos los controladores (masterVC, detailVC)
+        let houseListViewController = HouseListViewController(model: houses)
+        
+        
+        
+        //nav.setViewControllers(houseListViewController, animated: true)
+        
+        window?.rootViewController = houseListViewController
+        
+        
         return true
     }
 

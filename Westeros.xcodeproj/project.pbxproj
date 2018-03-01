@@ -45,6 +45,7 @@
 		F236093D204213AB00697575 /* HouseTargaryen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F236093C204213AB00697575 /* HouseTargaryen.swift */; };
 		F26C24F420432FDD0030D9F5 /* HouseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26C24F320432FDD0030D9F5 /* HouseProtocol.swift */; };
 		F26C24F720433C8D0030D9F5 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26C24F620433C8D0030D9F5 /* Enums.swift */; };
+		F2922A512045BFBB001FC78A /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2922A502045BFBB001FC78A /* DateExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		F236093C204213AB00697575 /* HouseTargaryen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTargaryen.swift; sourceTree = "<group>"; };
 		F26C24F320432FDD0030D9F5 /* HouseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseProtocol.swift; sourceTree = "<group>"; };
 		F26C24F620433C8D0030D9F5 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		F2922A502045BFBB001FC78A /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 		F21523F4203C8199005CEBD5 = {
 			isa = PBXGroup;
 			children = (
+				F2922A4F2045BF92001FC78A /* DateExtensions */,
 				F26C24F520433C670030D9F5 /* Enums */,
 				F2360937204212F800697575 /* ImplementsClass */,
 				F236093420420C5B00697575 /* Patterns */,
@@ -264,6 +267,14 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		F2922A4F2045BF92001FC78A /* DateExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				F2922A502045BFBB001FC78A /* DateExtensions.swift */,
+			);
+			path = DateExtensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -380,6 +391,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2152437203CA52E005CEBD5 /* HouseDetailViewController.swift in Sources */,
+				F2922A512045BFBB001FC78A /* DateExtensions.swift in Sources */,
 				F2152403203C8199005CEBD5 /* ViewController.swift in Sources */,
 				F215242A203C835B005CEBD5 /* Episode.swift in Sources */,
 				F236093B2042138200697575 /* HouseLannister.swift in Sources */,

@@ -38,10 +38,10 @@ extension House {
     }
     
     func add(person: Person) {
-        guard person.house == self else {
-            return
-        }
-        _members.insert(person)
+//        guard person.house == self else {
+//            return
+//        }
+//        _members.insert(person)
     }
     
     func add(persons: Person...) {
