@@ -23,26 +23,50 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NameHouse" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Fv-4n-cMQ">
-                    <rect key="frame" x="16" y="79" width="343" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="juU-HC-MzN">
-                    <rect key="frame" x="0.0" y="128" width="375" height="308"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DescripWorks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YjJ-Iq-vsV" userLabel="descripWorks">
-                    <rect key="frame" x="16" y="505" width="343" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HmW-f8-7C1">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NameHouse" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Fv-4n-cMQ">
+                            <rect key="frame" x="16" y="82" width="343" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="juU-HC-MzN">
+                            <rect key="frame" x="0.0" y="131" width="375" height="308"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="308" id="rJp-i1-Ad7"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DescripWorks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YjJ-Iq-vsV" userLabel="descripWorks">
+                            <rect key="frame" x="16" y="508" width="343" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="4Fv-4n-cMQ" firstAttribute="centerX" secondItem="juU-HC-MzN" secondAttribute="centerX" id="HkX-dr-4G8"/>
+                        <constraint firstItem="4Fv-4n-cMQ" firstAttribute="centerX" secondItem="HmW-f8-7C1" secondAttribute="centerX" id="LNI-8G-tob"/>
+                        <constraint firstItem="YjJ-Iq-vsV" firstAttribute="top" secondItem="juU-HC-MzN" secondAttribute="bottom" constant="69" id="MFu-AV-2jn"/>
+                        <constraint firstItem="4Fv-4n-cMQ" firstAttribute="trailing" secondItem="YjJ-Iq-vsV" secondAttribute="trailing" id="RWX-MC-U1X"/>
+                        <constraint firstItem="juU-HC-MzN" firstAttribute="leading" secondItem="HmW-f8-7C1" secondAttribute="leading" id="S0X-Ec-AID"/>
+                        <constraint firstItem="4Fv-4n-cMQ" firstAttribute="top" secondItem="HmW-f8-7C1" secondAttribute="top" constant="82" id="Uqj-1x-Tqn"/>
+                        <constraint firstItem="4Fv-4n-cMQ" firstAttribute="leading" secondItem="YjJ-Iq-vsV" secondAttribute="leading" id="X3M-5Y-46S"/>
+                        <constraint firstAttribute="bottom" secondItem="YjJ-Iq-vsV" secondAttribute="bottom" constant="138" id="azM-HU-7aG"/>
+                        <constraint firstItem="4Fv-4n-cMQ" firstAttribute="leading" secondItem="HmW-f8-7C1" secondAttribute="leading" constant="16" id="e7r-Va-f74"/>
+                        <constraint firstItem="juU-HC-MzN" firstAttribute="top" secondItem="4Fv-4n-cMQ" secondAttribute="bottom" constant="28" id="fGd-lg-zhx"/>
+                        <constraint firstAttribute="trailing" secondItem="juU-HC-MzN" secondAttribute="trailing" id="qJe-jT-Smm"/>
+                    </constraints>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="HmW-f8-7C1" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Ifb-mM-MIF"/>
+                <constraint firstAttribute="trailing" secondItem="HmW-f8-7C1" secondAttribute="trailing" id="nnp-2s-Af8"/>
+                <constraint firstItem="HmW-f8-7C1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rGh-4T-S56"/>
+                <constraint firstItem="HmW-f8-7C1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yw6-1S-Lji"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>

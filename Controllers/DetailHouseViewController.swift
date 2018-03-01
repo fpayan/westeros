@@ -5,7 +5,7 @@
 //  Created by Francisco Payán Calero on 1/3/18.
 //  Copyright © 2018 Francisco Payán Calero. All rights reserved.
 //
-
+import Foundation
 import UIKit
 
 class DetailHouseViewController: UIViewController {
@@ -13,6 +13,14 @@ class DetailHouseViewController: UIViewController {
     @IBOutlet weak var nameHouseLabel: UILabel!
     @IBOutlet weak var imageSigil: UIImageView!
     @IBOutlet weak var worksHouseLabel: UILabel!
+    
+    
+    private var scrollView: UIScrollView = {
+        let viewCustom = UIScrollView()
+        viewCustom.translatesAutoresizingMaskIntoConstraints = false
+        viewCustom.backgroundColor = .cyan
+        return viewCustom
+    }()
     
     // Mark: - Properties
     var model: HouseProtocol
@@ -50,13 +58,18 @@ class DetailHouseViewController: UIViewController {
         imageSigil.image = model.sigil.imageSigil
         worksHouseLabel.text = model.words.rawValue
         self.navigationItem.title = model.name.rawValue
+        //self.view.addSubview(scrollView)
     }
     
     // MARK: - UI
     func setupUI() {
         let wikiButton = UIBarButtonItem(title: "Wiki", style: .plain, target: self, action: #selector(displayWiki))
         let members = UIBarButtonItem(title: "Members", style: .plain, target: self, action: #selector(displayMembers))
-        
+//        self.view.addSubview(scrollView)
+//        scrollView.addSubview(self.nameHouseLabel)
+//        scrollView.addSubview(self.imageSigil)
+//        scrollView.addSubview(self.worksHouseLabel)
+        scrollView.contentSize = CGSize(width: self.view.frame.width * 2, height: self.view.frame.size.height)
         navigationItem.rightBarButtonItems = [wikiButton, members]
     }
     
