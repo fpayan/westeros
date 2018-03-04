@@ -12,7 +12,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
-
+    var seasonDetailNavigation:UINavigationController
+    var houseDetailNavigation:UINavigationController
+    var splitViewController:UISplitViewController
+    
+    init(seasonDetailNavigation:UINavigationController, houseDetailNavigation:UINavigationController, splitViewController:UISplitViewController) {
+        self.seasonDetailNavigation = seasonDetailNavigation
+        self.houseDetailNavigation = houseDetailNavigation
+        self.splitViewController = splitViewController
+    }
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -41,13 +50,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         houseListVC.delegate = houseDetailVC
         seasonListVC.delegate = seasonDetailVC
         
-        let splitViewController = UISplitViewController()
+        
+        var seasonDetailNavigation = seasonDetailVC.wrappedInNavigation()
+        var houseDetailNavigation = houseDetailVC.wrappedInNavigation()
+        
+        
+        var splitViewController = UISplitViewController()
         
         // Se crea el Tab para los VC de Houses y Seasons
         let tabBarVC = UITabBarController()
         UITabBar.appearance().barTintColor = uicolorFromHex(rgbValue: 0x034517)
         UITabBar.appearance().tintColor = uicolorFromHex(rgbValue: 0xffffff)
-        
+        tabBarVC.delegate = self
         tabBarVC.tabBar.tintColor = UIColor.white
         houseListVC.tabBarItem = UITabBarItem(title: "Houses", image: UIImage(assetIdentifier: .IconHouse), tag: 1)
         seasonListVC.tabBarItem = UITabBarItem(title: "Seasons", image: UIImage(assetIdentifier: .IconSeason), tag: 2)
@@ -78,7 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             // Estamos en iPhone
             splitViewController.viewControllers = [
                 tabBarVC,
-                houseDetailVC.wrappedInNavigation(),
+                //houseDetailVC.wrappedInNavigation(),
                 seasonDetailVC.wrappedInNavigation()
             ]
             // Asignamos el rootVC
@@ -130,5 +144,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
 
 
+}
+
+extension AppDelegate: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        guard let navigationController = viewController as? UINavigationController,
+            let viewController = navigationController.viewControllers.first else { return }
+        
+        let detailNavigation: UINavigationController
+        if type(of: viewController ) == SeasonMasterListTableViewController.self {
+            detailNavigation = seasonDetailNavigation
+        } else {
+            detailNavigation = houseDetailNavigation
+        }
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            splitViewController.showDetailViewController(detailNavigation, sender: nil)
+        }
+    }
 }
 

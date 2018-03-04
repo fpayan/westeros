@@ -38,6 +38,9 @@ class SeasonDetailViewController: UIViewController {
     // Mark: - Sync
     func syncModelWithView() {
         // Model -> View
+        guard nameSesion != nil, dateSesion != nil else{
+            return
+        }
         nameSesion.text = model.name
         dateSesion.text = model.dateLaunch.description
     }
