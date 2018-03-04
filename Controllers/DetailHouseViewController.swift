@@ -47,17 +47,25 @@ class DetailHouseViewController: UIViewController {
     // Mark: - Sync
     func syncModelWithView() {
         // Model -> View
+        guard
+            self.nameHouseLabel != nil,
+            self.imageSigil != nil,
+            self.worksHouseLabel != nil
+            else{
+            return
+        }
         nameHouseLabel.text = "House \(model.name.rawValue)"
         imageSigil.image = model.sigil.imageSigil
         worksHouseLabel.text = model.words.rawValue
-        self.navigationItem.title = model.name.rawValue
+        navigationItem.leftItemsSupplementBackButton = true
+        navigationItem.title = model.name.rawValue
     }
     
     // MARK: - UI
     func setupUI() {
         let wikiButton = UIBarButtonItem(title: "Wiki", style: .plain, target: self, action: #selector(displayWiki))
         let members = UIBarButtonItem(title: "Members", style: .plain, target: self, action: #selector(displayMembers))
-
+        navigationItem.leftItemsSupplementBackButton = true
         navigationItem.rightBarButtonItems = [wikiButton, members]
     }
     

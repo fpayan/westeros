@@ -8,9 +8,21 @@
 
 import UIKit
 
+let SEASON_KEY = "SeasonKey"
+let SEASON_DID_CHANGE_NOTIFICATION_NAME = "SeasonDidChange"
+let LAST_SEASON = "LAST_SEASON"
+
+protocol SeasonListViewControllerDelegate: class {
+    // should, will, did
+    func seasonListViewController(_ viewController: SeasonMasterListTableViewController, didSelectSeason: SeasonProtocol)
+}
+
+
 class SeasonMasterListTableViewController: UITableViewController {
         
     let model:[SeasonProtocol]
+    
+    weak var delegate: SeasonListViewControllerDelegate?
     
     init(model:[SeasonProtocol]){
         self.model = model
@@ -71,5 +83,40 @@ class SeasonMasterListTableViewController: UITableViewController {
         return cell!
     }
 
+    // MARK: Table View Delegate
+    // should, will, did
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Averiguar que casa han pulsado
+        let season = model[indexPath.row]
+        
+        
+        // Aviso al delegado
+        delegate?.seasonListViewController(self, didSelectSeason: season)
+        
+        if let detailViewController = delegate as? SeasonDetailViewController,
+            let detailNavigationController = detailViewController.navigationController {
+            splitViewController?.showDetailViewController(detailNavigationController, sender: nil)
+        }
+        
+        // Mando la misma info a traves de notificaciones
+        let notificationCenter = NotificationCenter.default
+        
+        let notification = Notification(name: Notification.Name(SEASON_DID_CHANGE_NOTIFICATION_NAME), object: self, userInfo: [SEASON_KEY : season])
+        
+        notificationCenter.post(notification)
+    }
     
+}
+
+extension SeasonMasterListTableViewController{
+    func lastSelectedSeason() -> SeasonProtocol {
+        // Extraer la row del User Defaults
+        let row = UserDefaults.standard.integer(forKey: LAST_SEASON)
+        
+        // Averiguar la casa de ese row
+        let season = model[row]
+        
+        // Devolverla
+        return season
+    }
 }

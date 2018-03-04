@@ -33,10 +33,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let houseDetailVC = DetailHouseViewController(model: lastSelectedHouse)
         //
         let seasonListVC = SeasonMasterListTableViewController(model: seasons)
+        let lastSelectedSeason = seasonListVC.lastSelectedSeason()
+        let seasonDetailVC = SeasonDetailViewController(model: lastSelectedSeason)
         //let episodeListVC = EpisodeMasterListViewController(model: episodes)
         
         // Asignar delegados
         houseListVC.delegate = houseDetailVC
+        seasonListVC.delegate = seasonDetailVC
+        
+        let splitViewController = UISplitViewController()
         
         // Se crea el Tab para los VC de Houses y Seasons
         let tabBarVC = UITabBarController()
@@ -49,39 +54,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         tabBarVC.setViewControllers(
             [houseListVC.wrappedInNavigation(),
-             seasonListVC.wrappedInNavigation(),
-             //episodeListVC.wrappedInNavigation()
+             seasonListVC.wrappedInNavigation()
             ], animated: true)
+                
+        tabBarVC.viewControllers?.forEach {
+            $0.navigationItem.leftItemsSupplementBackButton = true
+            $0.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+        }
         
-        
-        //if (UIDevice.current.userInterfaceIdiom == .pad){
-            // Crear el UISplitVC y le asignamos los viewControllers (master y detail)
-            let splitViewController = UISplitViewController()
-            splitViewController.viewControllers = [
-                tabBarVC,
-                //houseListVC.wrappedInNavigation(),
-                //houseDetailVC.wrappedInNavigation()
-            ]
-        //}else{
-            // En cualquier otro dispositivo, se decide no mostrar el split view
-            //window?.rootViewController = tabBarVC
-        //}
-        
-//        let rightNavController = splitViewController.viewControllers.last as? UINavigationController,
-//        let houseDetailVC = rightNavController?.topViewController as? DetailHouseViewController
-//        
-        // Asignamos el rootVC
-        window?.rootViewController = splitViewController
-        
-        //houseDetailVC.navigationItem.title = houseDetailVC.nameHouseLabel.text
         houseDetailVC.navigationItem.leftItemsSupplementBackButton = true
         houseDetailVC.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
         
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            // Estamos en iPad
+            splitViewController.viewControllers = [
+                tabBarVC,
+                houseDetailVC.wrappedInNavigation(),
+                seasonDetailVC.wrappedInNavigation()
+            ]
+            // Asignamos el rootVC
+            window?.rootViewController = splitViewController
+        } else if UIDevice.current.userInterfaceIdiom == .phone {
+            // Estamos en iPhone
+            splitViewController.viewControllers = [
+                tabBarVC,
+                houseDetailVC.wrappedInNavigation(),
+                seasonDetailVC.wrappedInNavigation()
+            ]
+            // Asignamos el rootVC
+            window?.rootViewController = splitViewController
+        }
+        //
         styleNavigatioBar()
-        
+        //
         return true
     }
 
+    
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

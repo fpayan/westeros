@@ -33,6 +33,8 @@
 		F230B8CC204C4F300073B32F /* SeasonMasterListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F230B8CA204C4F300073B32F /* SeasonMasterListTableViewController.xib */; };
 		F230B8CE204C507C0073B32F /* Folder.png in Resources */ = {isa = PBXBuildFile; fileRef = F230B8CD204C507C0073B32F /* Folder.png */; };
 		F230B8D0204C52E40073B32F /* Tv.png in Resources */ = {isa = PBXBuildFile; fileRef = F230B8CF204C52E40073B32F /* Tv.png */; };
+		F230B8D3204C8E7D0073B32F /* SeasonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F230B8D1204C8E7D0073B32F /* SeasonDetailViewController.swift */; };
+		F230B8D4204C8E7D0073B32F /* SeasonDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F230B8D2204C8E7D0073B32F /* SeasonDetailViewController.xib */; };
 		F236092B2041ACDC00697575 /* LannisterBig.png in Resources */ = {isa = PBXBuildFile; fileRef = F23609242041ACDC00697575 /* LannisterBig.png */; };
 		F236092C2041ACDC00697575 /* StarkBig.png in Resources */ = {isa = PBXBuildFile; fileRef = F23609252041ACDC00697575 /* StarkBig.png */; };
 		F236092D2041ACDC00697575 /* TargaryenBig.png in Resources */ = {isa = PBXBuildFile; fileRef = F23609262041ACDC00697575 /* TargaryenBig.png */; };
@@ -95,6 +97,8 @@
 		F230B8CA204C4F300073B32F /* SeasonMasterListTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonMasterListTableViewController.xib; sourceTree = "<group>"; };
 		F230B8CD204C507C0073B32F /* Folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Folder.png; sourceTree = "<group>"; };
 		F230B8CF204C52E40073B32F /* Tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tv.png; sourceTree = "<group>"; };
+		F230B8D1204C8E7D0073B32F /* SeasonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonDetailViewController.swift; sourceTree = "<group>"; };
+		F230B8D2204C8E7D0073B32F /* SeasonDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonDetailViewController.xib; sourceTree = "<group>"; };
 		F23609242041ACDC00697575 /* LannisterBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LannisterBig.png; sourceTree = "<group>"; };
 		F23609252041ACDC00697575 /* StarkBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarkBig.png; sourceTree = "<group>"; };
 		F23609262041ACDC00697575 /* TargaryenBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TargaryenBig.png; sourceTree = "<group>"; };
@@ -268,6 +272,7 @@
 				F2886BC92048470B00A46392 /* MasterWesterosViewController.swift */,
 				F230B8BF204C466F0073B32F /* MemberListViewController.swift */,
 				F230B8C9204C4F300073B32F /* SeasonMasterListTableViewController.swift */,
+				F230B8D1204C8E7D0073B32F /* SeasonDetailViewController.swift */,
 				F230B8BB204C431F0073B32F /* WikiViewController.swift */,
 			);
 			path = Controllers;
@@ -280,6 +285,7 @@
 				F2886BCA2048470B00A46392 /* MasterWesterosViewController.xib */,
 				F230B8C0204C466F0073B32F /* MemberListViewController.xib */,
 				F230B8CA204C4F300073B32F /* SeasonMasterListTableViewController.xib */,
+				F230B8D2204C8E7D0073B32F /* SeasonDetailViewController.xib */,
 				F230B8BC204C431F0073B32F /* WikiViewController.xib */,
 			);
 			path = ViewXIB;
@@ -376,6 +382,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F230B8D4204C8E7D0073B32F /* SeasonDetailViewController.xib in Resources */,
 				F230B8C5204C4BB50073B32F /* House.png in Resources */,
 				F2152408203C8199005CEBD5 /* Assets.xcassets in Resources */,
 				F236092D2041ACDC00697575 /* TargaryenBig.png in Resources */,
@@ -429,6 +436,7 @@
 				F2886BD12048510B00A46392 /* DetailHouseViewController.swift in Sources */,
 				F215242E203C83E0005CEBD5 /* UIKitExtensions.swift in Sources */,
 				F2886BCB2048470B00A46392 /* MasterWesterosViewController.swift in Sources */,
+				F230B8D3204C8E7D0073B32F /* SeasonDetailViewController.swift in Sources */,
 				F23609332041AF6200697575 /* Sigil.swift in Sources */,
 				F2152401203C8199005CEBD5 /* AppDelegate.swift in Sources */,
 				F236093620420C8500697575 /* HouseBuilder.swift in Sources */,

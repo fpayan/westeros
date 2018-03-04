@@ -43,7 +43,7 @@ class WikiViewController: UIViewController {
         
         // Nos damos de alta ...
         let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(houseDidChange), name: Notification.Name(HOUSE_DID_CHANGE_NOTIFICATION_NAME), object: nil)
+        notificationCenter.addObserver(self, selector: #selector(houseDidChange), name: Notification.Name(HOUSE_DID_CHANGE_NOTIFICATION_NAME), object: model)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -66,12 +66,12 @@ class WikiViewController: UIViewController {
         guard let info = notification.userInfo else {
             return
         }
-        
+        print(info)
         // Sacar la casa del userInfo
-        let house = info[HOUSE_KEY] as? House
+        let house = info[HOUSE_KEY] as? HouseProtocol
         
         // Actualizar el modelo
-        model = house! as! HouseProtocol
+        model = house! // nil here at mode landcast
         
         // Sincronizar la vista
         syncModelWithView()
