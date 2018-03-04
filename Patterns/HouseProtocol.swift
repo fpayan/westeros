@@ -16,6 +16,8 @@ protocol HouseProtocol {
     var proxyForEquality: String {get}
     var proxyForComparison: String {get}
     
+    var sortedMembers: [Person]{get}
+    
     typealias Words = String
     typealias Members = Set<Person>
     

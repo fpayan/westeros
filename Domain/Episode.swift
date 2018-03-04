@@ -19,17 +19,17 @@ protocol EpisodeProtocol: EpisodeProtocolClass {
 }
 
 protocol EpisodeProtocolClass: class{
-    weak var season:Season?{get} //Temporada
+    weak var season:SeasonProtocol?{get} //Temporada
 }
 
 final class Episode:EpisodeProtocol{
     
-    let season: Season?
+    let season: SeasonProtocol?
     let title: String
     let dateToEmit: Date
     let episodeID: Int
     
-    init(episodeID: Int, title:String, dateToEmit:Date, season:Season?) {
+    init(episodeID: Int, title:String, dateToEmit:Date, season:SeasonProtocol?) {
         self.episodeID = episodeID
         self.title = title
         self.dateToEmit = dateToEmit

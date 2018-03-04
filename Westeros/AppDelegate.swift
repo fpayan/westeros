@@ -24,25 +24,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         // Crear el modelo
         let houses = Repository.local.houses
+        let seasons = Repository.local.seasons
+        let episodes = Repository.local.episodes
     
         // Creamos los controladores (masterVC, detailVC)
         let houseListVC = MasterWesterosViewController(model: houses)
         let lastSelectedHouse = houseListVC.lastSelectedHouse()
         let houseDetailVC = DetailHouseViewController(model: lastSelectedHouse)
+        //
+        let seasonListVC = SeasonMasterListTableViewController(model: seasons)
+        //let episodeListVC = EpisodeMasterListViewController(model: episodes)
         
         // Asignar delegados
         houseListVC.delegate = houseDetailVC
         
         // Se crea el Tab para los VC de Houses y Seasons
-//        let tabBarVC = UITabBarController()
-//        tabBarVC.viewControllers = [houseListVC, houseDetailVC]
+        let tabBarVC = UITabBarController()
+        UITabBar.appearance().barTintColor = uicolorFromHex(rgbValue: 0x034517)
+        UITabBar.appearance().tintColor = uicolorFromHex(rgbValue: 0xffffff)
+        
+        tabBarVC.tabBar.tintColor = UIColor.white
+        houseListVC.tabBarItem = UITabBarItem(title: "Houses", image: UIImage(assetIdentifier: .IconHouse), tag: 1)
+        seasonListVC.tabBarItem = UITabBarItem(title: "Seasons", image: UIImage(assetIdentifier: .IconSeason), tag: 2)
+        
+        tabBarVC.setViewControllers(
+            [houseListVC.wrappedInNavigation(),
+             seasonListVC.wrappedInNavigation(),
+             //episodeListVC.wrappedInNavigation()
+            ], animated: true)
         
         
         //if (UIDevice.current.userInterfaceIdiom == .pad){
             // Crear el UISplitVC y le asignamos los viewControllers (master y detail)
             let splitViewController = UISplitViewController()
             splitViewController.viewControllers = [
-                houseListVC.wrappedInNavigation(), houseDetailVC.wrappedInNavigation()
+                tabBarVC,
+                //houseListVC.wrappedInNavigation(),
+                //houseDetailVC.wrappedInNavigation()
             ]
         //}else{
             // En cualquier otro dispositivo, se decide no mostrar el split view

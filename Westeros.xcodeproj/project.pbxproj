@@ -23,6 +23,16 @@
 		F215244B203CAFB4005CEBD5 /* codeIsComing.png in Resources */ = {isa = PBXBuildFile; fileRef = F2152448203CAFB4005CEBD5 /* codeIsComing.png */; };
 		F215244C203CAFB4005CEBD5 /* lannister.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2152449203CAFB4005CEBD5 /* lannister.jpg */; };
 		F215244D203CAFB4005CEBD5 /* targaryenSmall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F215244A203CAFB4005CEBD5 /* targaryenSmall.jpg */; };
+		F230B8BD204C431F0073B32F /* WikiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F230B8BB204C431F0073B32F /* WikiViewController.swift */; };
+		F230B8BE204C431F0073B32F /* WikiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F230B8BC204C431F0073B32F /* WikiViewController.xib */; };
+		F230B8C1204C466F0073B32F /* MemberListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F230B8BF204C466F0073B32F /* MemberListViewController.swift */; };
+		F230B8C2204C466F0073B32F /* MemberListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F230B8C0204C466F0073B32F /* MemberListViewController.xib */; };
+		F230B8C5204C4BB50073B32F /* House.png in Resources */ = {isa = PBXBuildFile; fileRef = F230B8C3204C4BB50073B32F /* House.png */; };
+		F230B8C8204C4D530073B32F /* Member.png in Resources */ = {isa = PBXBuildFile; fileRef = F230B8C7204C4D530073B32F /* Member.png */; };
+		F230B8CB204C4F300073B32F /* SeasonMasterListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F230B8C9204C4F300073B32F /* SeasonMasterListTableViewController.swift */; };
+		F230B8CC204C4F300073B32F /* SeasonMasterListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F230B8CA204C4F300073B32F /* SeasonMasterListTableViewController.xib */; };
+		F230B8CE204C507C0073B32F /* Folder.png in Resources */ = {isa = PBXBuildFile; fileRef = F230B8CD204C507C0073B32F /* Folder.png */; };
+		F230B8D0204C52E40073B32F /* Tv.png in Resources */ = {isa = PBXBuildFile; fileRef = F230B8CF204C52E40073B32F /* Tv.png */; };
 		F236092B2041ACDC00697575 /* LannisterBig.png in Resources */ = {isa = PBXBuildFile; fileRef = F23609242041ACDC00697575 /* LannisterBig.png */; };
 		F236092C2041ACDC00697575 /* StarkBig.png in Resources */ = {isa = PBXBuildFile; fileRef = F23609252041ACDC00697575 /* StarkBig.png */; };
 		F236092D2041ACDC00697575 /* TargaryenBig.png in Resources */ = {isa = PBXBuildFile; fileRef = F23609262041ACDC00697575 /* TargaryenBig.png */; };
@@ -75,6 +85,16 @@
 		F2152448203CAFB4005CEBD5 /* codeIsComing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codeIsComing.png; sourceTree = "<group>"; };
 		F2152449203CAFB4005CEBD5 /* lannister.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lannister.jpg; sourceTree = "<group>"; };
 		F215244A203CAFB4005CEBD5 /* targaryenSmall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = targaryenSmall.jpg; sourceTree = "<group>"; };
+		F230B8BB204C431F0073B32F /* WikiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiViewController.swift; sourceTree = "<group>"; };
+		F230B8BC204C431F0073B32F /* WikiViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WikiViewController.xib; sourceTree = "<group>"; };
+		F230B8BF204C466F0073B32F /* MemberListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberListViewController.swift; sourceTree = "<group>"; };
+		F230B8C0204C466F0073B32F /* MemberListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberListViewController.xib; sourceTree = "<group>"; };
+		F230B8C3204C4BB50073B32F /* House.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = House.png; sourceTree = "<group>"; };
+		F230B8C7204C4D530073B32F /* Member.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Member.png; path = ../../../../../../../Downloads/Member.png; sourceTree = "<group>"; };
+		F230B8C9204C4F300073B32F /* SeasonMasterListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonMasterListTableViewController.swift; sourceTree = "<group>"; };
+		F230B8CA204C4F300073B32F /* SeasonMasterListTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeasonMasterListTableViewController.xib; sourceTree = "<group>"; };
+		F230B8CD204C507C0073B32F /* Folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Folder.png; sourceTree = "<group>"; };
+		F230B8CF204C52E40073B32F /* Tv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tv.png; sourceTree = "<group>"; };
 		F23609242041ACDC00697575 /* LannisterBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LannisterBig.png; sourceTree = "<group>"; };
 		F23609252041ACDC00697575 /* StarkBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarkBig.png; sourceTree = "<group>"; };
 		F23609262041ACDC00697575 /* TargaryenBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TargaryenBig.png; sourceTree = "<group>"; };
@@ -196,6 +216,10 @@
 		F2152447203CAFB4005CEBD5 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				F230B8C7204C4D530073B32F /* Member.png */,
+				F230B8CF204C52E40073B32F /* Tv.png */,
+				F230B8C3204C4BB50073B32F /* House.png */,
+				F230B8CD204C507C0073B32F /* Folder.png */,
 				F236092A2041ACDC00697575 /* GameDefault.png */,
 				F23609272041ACDC00697575 /* Lannister.png */,
 				F23609242041ACDC00697575 /* LannisterBig.png */,
@@ -240,8 +264,11 @@
 		F2886BC72048466200A46392 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F2886BC92048470B00A46392 /* MasterWesterosViewController.swift */,
 				F2886BCF2048510B00A46392 /* DetailHouseViewController.swift */,
+				F2886BC92048470B00A46392 /* MasterWesterosViewController.swift */,
+				F230B8BF204C466F0073B32F /* MemberListViewController.swift */,
+				F230B8C9204C4F300073B32F /* SeasonMasterListTableViewController.swift */,
+				F230B8BB204C431F0073B32F /* WikiViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -249,8 +276,11 @@
 		F2886BC82048467800A46392 /* ViewXIB */ = {
 			isa = PBXGroup;
 			children = (
-				F2886BCA2048470B00A46392 /* MasterWesterosViewController.xib */,
 				F2886BD02048510B00A46392 /* DetailHouseViewController.xib */,
+				F2886BCA2048470B00A46392 /* MasterWesterosViewController.xib */,
+				F230B8C0204C466F0073B32F /* MemberListViewController.xib */,
+				F230B8CA204C4F300073B32F /* SeasonMasterListTableViewController.xib */,
+				F230B8BC204C431F0073B32F /* WikiViewController.xib */,
 			);
 			path = ViewXIB;
 			sourceTree = "<group>";
@@ -346,15 +376,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F230B8C5204C4BB50073B32F /* House.png in Resources */,
 				F2152408203C8199005CEBD5 /* Assets.xcassets in Resources */,
 				F236092D2041ACDC00697575 /* TargaryenBig.png in Resources */,
+				F230B8C8204C4D530073B32F /* Member.png in Resources */,
 				F236092E2041ACDC00697575 /* Lannister.png in Resources */,
 				F215244B203CAFB4005CEBD5 /* codeIsComing.png in Resources */,
 				F2886BCC2048470B00A46392 /* MasterWesterosViewController.xib in Resources */,
 				F236092C2041ACDC00697575 /* StarkBig.png in Resources */,
+				F230B8CC204C4F300073B32F /* SeasonMasterListTableViewController.xib in Resources */,
 				F215244C203CAFB4005CEBD5 /* lannister.jpg in Resources */,
 				F236092F2041ACDC00697575 /* Stark.png in Resources */,
+				F230B8CE204C507C0073B32F /* Folder.png in Resources */,
+				F230B8BE204C431F0073B32F /* WikiViewController.xib in Resources */,
 				F23609302041ACDC00697575 /* Targaryen.png in Resources */,
+				F230B8C2204C466F0073B32F /* MemberListViewController.xib in Resources */,
+				F230B8D0204C52E40073B32F /* Tv.png in Resources */,
 				F23609312041ACDC00697575 /* GameDefault.png in Resources */,
 				F2886BD22048510B00A46392 /* DetailHouseViewController.xib in Resources */,
 				F236092B2041ACDC00697575 /* LannisterBig.png in Resources */,
@@ -380,10 +417,13 @@
 				F2152403203C8199005CEBD5 /* ViewController.swift in Sources */,
 				F215242A203C835B005CEBD5 /* Episode.swift in Sources */,
 				F236093B2042138200697575 /* HouseLannister.swift in Sources */,
+				F230B8C1204C466F0073B32F /* MemberListViewController.swift in Sources */,
 				F26C24F420432FDD0030D9F5 /* HouseProtocol.swift in Sources */,
 				F2152424203C82E5005CEBD5 /* House.swift in Sources */,
 				F23609392042132000697575 /* HouseStark.swift in Sources */,
+				F230B8BD204C431F0073B32F /* WikiViewController.swift in Sources */,
 				F2152428203C8313005CEBD5 /* Repository.swift in Sources */,
+				F230B8CB204C4F300073B32F /* SeasonMasterListTableViewController.swift in Sources */,
 				F2152426203C82FD005CEBD5 /* Person.swift in Sources */,
 				F215242C203C836C005CEBD5 /* Season.swift in Sources */,
 				F2886BD12048510B00A46392 /* DetailHouseViewController.swift in Sources */,
