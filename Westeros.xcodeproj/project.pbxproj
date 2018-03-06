@@ -47,6 +47,7 @@
 		F23609392042132000697575 /* HouseStark.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23609382042132000697575 /* HouseStark.swift */; };
 		F236093B2042138200697575 /* HouseLannister.swift in Sources */ = {isa = PBXBuildFile; fileRef = F236093A2042138200697575 /* HouseLannister.swift */; };
 		F236093D204213AB00697575 /* HouseTargaryen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F236093C204213AB00697575 /* HouseTargaryen.swift */; };
+		F2500EE7204D4C9E0007497D /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2500EE6204D4C9E0007497D /* SplitViewController.swift */; };
 		F26C24F420432FDD0030D9F5 /* HouseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26C24F320432FDD0030D9F5 /* HouseProtocol.swift */; };
 		F26C24F720433C8D0030D9F5 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26C24F620433C8D0030D9F5 /* Enums.swift */; };
 		F2886BCB2048470B00A46392 /* MasterWesterosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2886BC92048470B00A46392 /* MasterWesterosViewController.swift */; };
@@ -111,6 +112,7 @@
 		F23609382042132000697575 /* HouseStark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseStark.swift; sourceTree = "<group>"; };
 		F236093A2042138200697575 /* HouseLannister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseLannister.swift; sourceTree = "<group>"; };
 		F236093C204213AB00697575 /* HouseTargaryen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTargaryen.swift; sourceTree = "<group>"; };
+		F2500EE6204D4C9E0007497D /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		F26C24F320432FDD0030D9F5 /* HouseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseProtocol.swift; sourceTree = "<group>"; };
 		F26C24F620433C8D0030D9F5 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		F2886BC92048470B00A46392 /* MasterWesterosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterWesterosViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 		F21523F4203C8199005CEBD5 = {
 			isa = PBXGroup;
 			children = (
+				F2500EE5204D4C670007497D /* UIKitCustomer */,
 				F2886BC82048467800A46392 /* ViewXIB */,
 				F2886BC72048466200A46392 /* Controllers */,
 				F2922A4F2045BF92001FC78A /* DateExtensions */,
@@ -255,6 +258,14 @@
 				F236093C204213AB00697575 /* HouseTargaryen.swift */,
 			);
 			path = ImplementsClass;
+			sourceTree = "<group>";
+		};
+		F2500EE5204D4C670007497D /* UIKitCustomer */ = {
+			isa = PBXGroup;
+			children = (
+				F2500EE6204D4C9E0007497D /* SplitViewController.swift */,
+			);
+			path = UIKitCustomer;
 			sourceTree = "<group>";
 		};
 		F26C24F520433C670030D9F5 /* Enums */ = {
@@ -442,6 +453,7 @@
 				F236093620420C8500697575 /* HouseBuilder.swift in Sources */,
 				F236093D204213AB00697575 /* HouseTargaryen.swift in Sources */,
 				F26C24F720433C8D0030D9F5 /* Enums.swift in Sources */,
+				F2500EE7204D4C9E0007497D /* SplitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

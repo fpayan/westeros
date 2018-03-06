@@ -14,7 +14,7 @@ let LAST_HOUSE = "LAST_HOUSE"
 
 protocol HouseListViewControllerDelegate: class {
     // should, will, did
-    func houseListViewController(_ viewController: MasterWesterosViewController, didSelectHouse: HouseProtocol)
+    func houseListViewController(_ viewController: MasterWesterosViewController, didSelectHouse house: HouseProtocol)
 }
 
 class MasterWesterosViewController: UITableViewController {
@@ -41,8 +41,25 @@ class MasterWesterosViewController: UITableViewController {
     // Mark: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.orientation), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func orientation() {
+        if UIDevice.current.orientation == UIDeviceOrientation.landscapeLeft {
+            print("landscapeLeft MASTER")
+        } else if UIDevice.current.orientation == UIDeviceOrientation.landscapeRight {
+            print("landscapeRight MASTER")
+        } else if UIDevice.current.orientation == UIDeviceOrientation.portrait {
+            print("portrait MASTER")
+        } else if UIDevice.current.orientation == UIDeviceOrientation.portraitUpsideDown {
+            print("portraitUpsideDown MASTER")
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -110,20 +127,28 @@ class MasterWesterosViewController: UITableViewController {
         notificationCenter.post(notification)
         
         // Guardar las coordenadas (section, row) de la ultima casa seleccionada
-        //saveLastSelectedHouse(at: indexPath.row)
-        //self.navigationController?.pushViewController(houseDetailVC, animated: true)
+        saveLastSelectedHouse(at: indexPath.row)
+        
     }
     
     
 }
 
+// MARK: - Delegate
+extension MasterWesterosViewController: HouseListViewControllerDelegate {
+    func houseListViewController(_ viewController: MasterWesterosViewController, didSelectHouse house: HouseProtocol) {
+        let houseDetailViewController = DetailHouseViewController(model: house)
+        navigationController?.pushViewController(houseDetailViewController, animated: true)
+    }
+}
+
 extension MasterWesterosViewController {
-//    func saveLastSelectedHouse(at row: Int) {
-//        let defaults = UserDefaults.standard
-//        defaults.set(row, forKey: LAST_HOUSE)
-//        // Por si las moscas
-//        defaults.synchronize()
-//    }
+    func saveLastSelectedHouse(at row: Int) {
+        let defaults = UserDefaults.standard
+        defaults.set(row, forKey: LAST_HOUSE)
+        // Por si las moscas
+        defaults.synchronize()
+    }
     
     func lastSelectedHouse() -> HouseProtocol {
         // Extraer la row del User Defaults

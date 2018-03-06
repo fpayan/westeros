@@ -14,6 +14,7 @@ class DetailHouseViewController: UIViewController {
     @IBOutlet weak var imageSigil: UIImageView!
     @IBOutlet weak var worksHouseLabel: UILabel!
 
+//    var splitVC: UISplitViewController!
     
     // Mark: - Properties
     var model: HouseProtocol
@@ -22,11 +23,17 @@ class DetailHouseViewController: UIViewController {
     init(model: HouseProtocol) {
         // Primero, limpias tu propio desorder
         self.model = model
+//        self.splitVC = UISplitViewController()
         // Llamas a super
         super.init(nibName: nil, bundle: Bundle(for: type(of: self)))
         title = model.name.rawValue
     }
     
+    // Delete object of memory
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+        
     // Chapuza de los de Cupertino relacionada con los nil
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -37,6 +44,7 @@ class DetailHouseViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         syncModelWithView()
+        notificationDeviceCurrentOrientation()
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,9 +73,14 @@ class DetailHouseViewController: UIViewController {
     func setupUI() {
         let wikiButton = UIBarButtonItem(title: "Wiki", style: .plain, target: self, action: #selector(displayWiki))
         let members = UIBarButtonItem(title: "Members", style: .plain, target: self, action: #selector(displayMembers))
+        navigationItem.backBarButtonItem?.style = .plain
         navigationItem.leftItemsSupplementBackButton = true
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< Back", style: .plain, target: nil, action: nil)
         navigationItem.rightBarButtonItems = [wikiButton, members]
     }
+    
+    
     
     @objc func displayWiki() {
         // Creamos el WikiVC
@@ -85,23 +98,37 @@ class DetailHouseViewController: UIViewController {
         navigationController?.pushViewController(memberListViewController, animated: true)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        print( "INDENTIFIER: \n \(String(describing: segue.identifier))" )
     }
-    */
+
+    public func naviagationControllerHouseDetail() -> UINavigationController{
+        guard let nav = self.navigationController else{
+            return UINavigationController()
+        }
+        return nav
+    }
 
 }
 
-extension DetailHouseViewController: UISplitViewControllerDelegate{
+extension DetailHouseViewController{
+    func notificationDeviceCurrentOrientation(){
+        NotificationCenter.default.addObserver(self, selector: #selector(self.orientation), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+    }
     
-    
+    @objc func orientation() {
+        if UIDevice.current.orientation == UIDeviceOrientation.landscapeLeft {
+            print("landscapeLeft DETAIL")
+        } else if UIDevice.current.orientation == UIDeviceOrientation.landscapeRight {
+            print("landscapeRight DETAIL")
+        } else if UIDevice.current.orientation == UIDeviceOrientation.portrait {
+            print("portrait DETAIL")
+        } else if UIDevice.current.orientation == UIDeviceOrientation.portraitUpsideDown {
+            print("portraitUpsideDown DETAIL")
+        }
+    }
 }
+
 
 extension DetailHouseViewController: HouseListViewControllerDelegate {
     

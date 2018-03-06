@@ -35,6 +35,13 @@ class SeasonDetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - UI
+    func setupUI() {
+        navigationItem.backBarButtonItem?.style = .plain
+        navigationItem.leftItemsSupplementBackButton = true
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+    }
+    
     // Mark: - Sync
     func syncModelWithView() {
         // Model -> View
@@ -47,6 +54,7 @@ class SeasonDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         syncModelWithView()
         // Do any additional setup after loading the view.
     }
@@ -54,6 +62,13 @@ class SeasonDetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    public func naviagationControllerSesionDetail() -> UINavigationController{
+        guard let nav = self.navigationController else{
+            return UINavigationController()
+        }
+        return nav
     }
     
 }
